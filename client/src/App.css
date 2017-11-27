@@ -1,0 +1,105 @@
+.App {
+/*  text-align: center;*/
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 50px;
+}
+
+.react-grid-Toolbar {
+  display: none
+}
+
+.neg {color: red;}
+
+.App-header {
+  text-align: center;
+  background-color: #222;
+  height: 80px;
+  padding: 10px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.blackText{
+  color: black;
+}
+
+.react-grid-Viewport {
+  text-align: right;
+}
+
+.react-grid-Row--even .react-grid-Cell { background-color: #bbdefb; }
+
+/* Hides the cell drag icon that will edit multiple rows in cell editor*/
+.drag-handle { display: none; }
+
+.navbar-header .navbar-brand {
+  font-size: 180%;
+}
+/* Prevents link-like highlighting on hover */
+.navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:focus {
+  color: #9d9d9d !important;
+}
+
+.navbar {
+  border-radius: 0px !important;
+}
+
+/*****************Context Menu Styling*****************/
+.react-context-menu {
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    color: #373a3c;
+    text-align: left;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
+    outline: none;
+}
+
+.react-context-menu-link {
+    display: inline-block;
+    width: 100%;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #373a3c;
+    text-align: inherit;
+    white-space: nowrap;
+    background: 0 0;
+    border: 0;
+}
+
+.react-context-menu-link.active,
+.react-context-menu-link:hover {
+    color: #fff;
+    background-color: #0275d8;
+    border-color: #0275d8;
+    text-decoration: none;
+}
+
+.react-context-menu-item.submenu > a {
+    padding-right: 27px;
+}
+
+.react-context-menu-item.submenu > a:after {
+    content: "▶";
+    display: inline-block;
+    position: absolute;
+    right: 7px;
+}

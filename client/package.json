@@ -1,0 +1,28 @@
+{
+  "name": "react-axe-viewer-client",
+  "version": "1.0.0",
+  "private": true,
+  "keywords": [],
+  "author": "gala-susie",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "bootstrap": "^3.3.7",
+    "d3": "^4.11.0",
+    "immutability-helper": "^2.4.0",
+    "react": "^15.6.1",
+    "react-bootstrap": "^0.31.3",
+    "react-data-grid": "^2.0.60",
+    "react-data-grid-addons": "^2.0.60",
+    "react-dom": "^15.6.1",
+    "react-scripts": "1.0.14",
+    "socket.io": "^2.0.3"
+  },
+  "proxy": "http://localhost:5000",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
