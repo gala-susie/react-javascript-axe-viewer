@@ -12,7 +12,7 @@ export default class IOIDisplay extends Component {
     
     this._columns = [
       { key: 'username', name: 'User', filterable: true, resizable: true,  sortable: true, editable: true},
-      { key: 'qty', name: 'Qty', filterable: true, resizable: true, sortable: true, editable: true },
+      { key: 'qty', name: 'Quantity', filterable: true, resizable: true, sortable: true, editable: true },
       { key: 'message', name: 'Message', filterable: true, resizable: true, sortable: true, editable: true}
     ];
         
