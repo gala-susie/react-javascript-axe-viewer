@@ -18,6 +18,7 @@ class App extends Component {
   
   componentDidMount() {
     window.onresize = this.resize;
+    this.resize();
   }
   
   resize = () => {
