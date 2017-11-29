@@ -2,6 +2,8 @@ import { Modal } from 'react-bootstrap';
 import React, { Component } from 'react';
 import update from 'immutability-helper';
 
+import NoZeroFormatter from './NoZeroFormatter';
+
 // TODO: change below consts to imports
 const ReactDataGrid = require('react-data-grid');
 const { Toolbar, Data: { Selectors } } = require('react-data-grid-addons');
@@ -11,9 +13,9 @@ export default class IOIDisplay extends Component {
     super(props);  
     
     this._columns = [
-      { key: 'username', name: 'User', filterable: true, resizable: true,  sortable: true, editable: true},
-      { key: 'qty', name: 'Quantity', filterable: true, resizable: true, sortable: true, editable: true },
-      { key: 'message', name: 'Message', filterable: true, resizable: true, sortable: true, editable: true}
+      { key: 'username', name: 'User', filterable: true, resizable: true,  sortable: true, editable: true, formatter: NoZeroFormatter},
+      { key: 'qty', name: 'Quantity', filterable: true, resizable: true, sortable: true, editable: true, formatter: NoZeroFormatter},
+      { key: 'message', name: 'Message', filterable: true, resizable: true, sortable: true, editable: true, formatter: NoZeroFormatter}
     ];
         
     this.state = {
