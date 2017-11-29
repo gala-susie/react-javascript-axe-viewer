@@ -7,10 +7,7 @@ export default class NoZeroFormatter extends Component {
   }
   
   render () {
-    let style = "";
-    if (this.props.value < 0) {
-      style = "neg";
-    }
+    const style = (this.props.value < 0) ? "neg" : "";
       
     const value = (this.props.value === 0 || this.props.value === "") ? '-' : this.addCommas(this.props.value);
 
