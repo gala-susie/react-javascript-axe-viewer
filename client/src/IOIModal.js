@@ -65,7 +65,7 @@ export default class IOIModal extends Component {
     return  (
       <Modal show={this.props.show} onHide={this.props.close}>  
         <Modal.Header>
-          <Modal.Title className="blackText">Indication of Interest</Modal.Title>
+          <Modal.Title className="black-text">Indication of Interest</Modal.Title>
         </Modal.Header>
         {body}
         <Modal.Footer>

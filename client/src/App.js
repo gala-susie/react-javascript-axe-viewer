@@ -18,6 +18,7 @@ class App extends Component {
   
   componentDidMount() {
     window.onresize = this.resize;
+    this.resize();
   }
   
   resize = () => {
@@ -37,7 +38,7 @@ class App extends Component {
   render() {
     if (this.state.loggedIn) {
       return (
-        <div className="App">
+        <div>
           <Navbar inverse>
             <Navbar.Header>
               <Navbar.Brand>
