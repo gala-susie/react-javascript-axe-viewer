@@ -38,7 +38,7 @@ class App extends Component {
   render() {
     if (this.state.loggedIn) {
       return (
-        <div className="App">
+        <div>
           <Navbar inverse>
             <Navbar.Header>
               <Navbar.Brand>
