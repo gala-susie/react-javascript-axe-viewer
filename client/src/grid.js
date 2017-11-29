@@ -21,7 +21,7 @@ export default class Grid extends Component {
     const columnSetup = [
       { key: 'security', title: 'Name', name: 'Name', filterable: true, visible: true, draggable: true, sortable: true, resizable: true, width: 70, 
        events: {
-          onDoubleClick: function(ev, args) {
+          onDoubleClick: (ev, args) => {
             console.log('The user entered edit mode on title column with rowIdx: ' + args.rowIdx + ' & rowId: ' + args.rowId);
           }
         }
@@ -55,10 +55,10 @@ export default class Grid extends Component {
     this.createRows();
     
     const bigThis = this;
-    socket.on('update', function(data) {
+    socket.on('update', (data) => {
       bigThis.updateIOIFromSockets(data);
     });
-    socket.on('new', function(data) {
+    socket.on('new', (data) => {
       bigThis.newIOIFromSockets(data);
     })
         
@@ -77,11 +77,11 @@ export default class Grid extends Component {
   newIOIFromSockets = (payload) => {
     // update the ioi count in rows
     const index = this.state.rows.findIndex((x) => { return x.security === payload.code });
-    const updatedRows = update(this.state.rows, {[index]: {ioi: {$apply: function(x) {return (x) ? parseInt(x, 10) + parseInt(payload.countChange, 10) : payload.countChange}}}});
+    const updatedRows = update(this.state.rows, {[index]: {ioi: {$apply: (x) => {return (x) ? parseInt(x, 10) + parseInt(payload.countChange, 10) : payload.countChange}}}});
 
     // also update it in originalRows
     const index2 = this.state.originalRows.findIndex((x) => { return x.security === payload.code });
-    const updatedOrig = update(this.state.originalRows, {[index2]: {ioi: {$apply: function(x) {return (x) ? parseInt(x, 10) + parseInt(payload.countChange, 10) : payload.countChange}}}});
+    const updatedOrig = update(this.state.originalRows, {[index2]: {ioi: {$apply: (x) => {return (x) ? parseInt(x, 10) + parseInt(payload.countChange, 10) : payload.countChange}}}});
 
     this.setState({rows: updatedRows, originalRows: updatedOrig});
   }
