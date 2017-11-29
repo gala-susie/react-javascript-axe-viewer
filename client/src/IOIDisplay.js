@@ -23,7 +23,7 @@ export default class IOIDisplay extends Component {
   }
   
   componentDidMount() {
-    var urlPath = 'api/getOne?code=' + this.props.code;
+    const urlPath = 'api/getOne?code=' + this.props.code;
     fetch(urlPath)
       .then(res => res.json())
       .then(rows => this.setState({ rows }));

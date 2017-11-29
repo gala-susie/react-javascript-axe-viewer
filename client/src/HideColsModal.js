@@ -17,12 +17,12 @@ export default class HideColsModal extends Component {
   }
   
   onCheckboxClick = (e) => {  
-    var key = e.target.value;
+    const key = e.target.value;
     this.props.clickCol(key);
   }
   
   render() {
-    var bigThis = this;
+    const bigThis = this;
     
     return (
       <Modal show={this.props.showModal} onHide={this.props.close} bsSize="small">

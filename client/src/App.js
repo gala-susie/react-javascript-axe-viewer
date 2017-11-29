@@ -21,7 +21,7 @@ class App extends Component {
   }
   
   resize = () => {
-    var newHeight = window.innerHeight - 80;
+    let newHeight = window.innerHeight - 80;
     newHeight = newHeight * 0.9;
     this.setState({height: newHeight})
   }

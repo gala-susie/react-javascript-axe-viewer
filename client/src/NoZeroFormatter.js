@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 export default class NoZeroFormatter extends Component {
   render () {
-    var style = "";
+    let style = "";
     if (this.props.value < 0) {
       style = "neg";
     }
