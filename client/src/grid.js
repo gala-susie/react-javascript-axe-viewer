@@ -8,7 +8,7 @@ import { Button } from 'react-bootstrap';
 import * as d3 from "d3";
 import io from 'socket.io-client';
 
-var socket = io();
+const socket = io();
 // TODO: turn the below requires into imports
 const { Toolbar, Data: { Selectors } } = require('react-data-grid-addons');
 const { DraggableHeader: { DraggableContainer }} = require('react-data-grid-addons');
@@ -54,7 +54,7 @@ export default class Grid extends Component {
 
     this.createRows();
     
-    var bigThis = this;
+    const bigThis = this;
     socket.on('update', (data) => {
       bigThis.updateIOIFromSockets(data);
     });
@@ -76,11 +76,11 @@ export default class Grid extends Component {
 
   newIOIFromSockets = (payload) => {
     // update the ioi count in rows
-    var index = this.state.rows.findIndex((x) => { return x.security === payload.code });
+    const index = this.state.rows.findIndex((x) => { return x.security === payload.code });
     const updatedRows = update(this.state.rows, {[index]: {ioi: {$apply: (x) => {return (x) ? parseInt(x, 10) + parseInt(payload.countChange, 10) : payload.countChange}}}});
 
     // also update it in originalRows
-    var index2 = this.state.originalRows.findIndex((x) => { return x.security === payload.code });
+    const index2 = this.state.originalRows.findIndex((x) => { return x.security === payload.code });
     const updatedOrig = update(this.state.originalRows, {[index2]: {ioi: {$apply: (x) => {return (x) ? parseInt(x, 10) + parseInt(payload.countChange, 10) : payload.countChange}}}});
 
     this.setState({rows: updatedRows, originalRows: updatedOrig});
@@ -89,11 +89,11 @@ export default class Grid extends Component {
   updateIOIFromSockets = (payload) => {
     
     // update the ioi count in rows
-    var index = this.state.rows.findIndex((x) => { return x.security === payload.code });
+    const index = this.state.rows.findIndex((x) => { return x.security === payload.code });
     const newRows = update(this.state.rows, {[index]: {ioi: {$set: payload.countChange}}});
 
     // also update it in originalRows
-    var index2 = this.state.originalRows.findIndex((x) => { return x.security === payload.code });
+    const index2 = this.state.originalRows.findIndex((x) => { return x.security === payload.code });
     const updateOrig = update(this.state.originalRows, {[index2]: {ioi: {$set: payload.countChange}}});
 
     this.setState({rows: newRows, originalRows: updateOrig});
@@ -130,7 +130,7 @@ export default class Grid extends Component {
       i => i.name === col
     );
     
-    var newCols = this.state.columns;
+    let newCols = this.state.columns;
     
     if (this.state.columns[colIndex].name === col) {
       newCols = update(this.state.columns, {[colIndex]: {visible: {$set: !this.state.columns[colIndex].visible}}});
@@ -144,7 +144,7 @@ export default class Grid extends Component {
   createRows = () => {
     const sodOpt = [120000, 2000000, 98000, 30000, -32000, 1000, 302000, 65000, 77000, 1000000,-2000, -38800, -1000, -7200, -210000];
         
-    var file = '/RussellRefData.csv';
+    const file = '/RussellRefData.csv';
     
     fetch('/api/sums').then(res => res.json())
           .then(sums => this.setState({sums}))
@@ -255,10 +255,10 @@ export default class Grid extends Component {
   }
   
   hideCols = (columns) => {
-    var newCols = this.state.columns;
+    let newCols = this.state.columns;
     
-    for (var j = 0; j < this.state.columns.length; j ++) {
-      for (var i = 0; i < columns.length; i++) {
+    for (let j = 0; j < this.state.columns.length; j ++) {
+      for (let i = 0; i < columns.length; i++) {
         if (this.state.columns[j].key === columns[i]) {
           newCols = update(newCols, {[j]: {visible: {$set: false}}})
         }

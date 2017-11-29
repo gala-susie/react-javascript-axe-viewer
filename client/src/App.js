@@ -18,10 +18,11 @@ class App extends Component {
   
   componentDidMount() {
     window.onresize = this.resize;
+    this.resize();
   }
   
   resize = () => {
-    var newHeight = window.innerHeight - 80;
+    let newHeight = window.innerHeight - 80;
     newHeight = newHeight * 0.9;
     this.setState({height: newHeight})
   }
@@ -37,7 +38,7 @@ class App extends Component {
   render() {
     if (this.state.loggedIn) {
       return (
-        <div className="App">
+        <div>
           <Navbar inverse>
             <Navbar.Header>
               <Navbar.Brand>
